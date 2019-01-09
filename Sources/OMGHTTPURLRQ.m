@@ -133,6 +133,7 @@ static NSMutableURLRequest *OMGFormURLEncodedRequest(NSString *urlString, NSStri
         [rq setURL:url];
         [rq setHTTPMethod:@"POST"];
         [rq addValue:contentType forHTTPHeaderField:@"Content-Type"];
+        [rq addValue:@(data.length).description forHTTPHeaderField:@"Content-Length"];
         [rq setHTTPBody:data];
         return rq;
     }
